@@ -1,3 +1,15 @@
+# Launchpad + AIR BoosterPack on mspgcc #
+
+This is a project to simplify the use of AIR BoosterPack by Anaren with mspgcc 'uniarch'. The purpose is to make the code portable, and forget about Anaren's unreadable code, and instead use the [TI slaa325a application note](http://www.ti.com/general/docs/litabsmultiplefilelist.tsp?literatureNumber=slaa325a).
+
+Forked from [mobilar's code](https://github.com/mobilars/LarsRF-mspgcc).
+
+# License #
+
+The TI files are under the BSD License, as clearly stated per-file in its header.
+
+# Original README #
+
 This is the MSPGCC Branch of the code. It has a different directory structure and content.
 
 This is a simple RF library for TI Launchpad w / RF Boosterpack running MSP430G2553.

@@ -51,7 +51,7 @@ void uart_printf(char *format, ...)
     
     va_list a;
     va_start(a, format);
-    while(c = *format++) {
+    while((c = *format++)) {
         if(c == '%') {
             switch(c = *format++) {
                 case 's':                       // String
