@@ -459,6 +459,14 @@ extern char paTableLen = 1;
 //-----------------------------------------------------------------------------
 void RFSendPacket(char *txBuffer, char size)
 {
+
+  // thx http://www.43oh.com/forum/viewtopic.php?p=18009#p18009
+  // added 20120123 based on ANAREN code
+  TI_CC_SPIStrobe(TI_CCxxx0_SIDLE); // set to IDLE
+  TI_CC_SPIStrobe(TI_CCxxx0_SFRX); // flush RX
+  TI_CC_SPIStrobe(TI_CCxxx0_SFTX); // flush TX
+  // end new 20120123
+
   TI_CC_SPIWriteBurstReg(TI_CCxxx0_TXFIFO, txBuffer, size); // Write TX data
   TI_CC_SPIStrobe(TI_CCxxx0_STX);           // Change state to TX, initiating
                                             // data transfer

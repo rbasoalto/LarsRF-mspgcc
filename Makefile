@@ -23,7 +23,8 @@ TAGS = ctags
 # Flags
 #
  
-CFLAGS =  -g -pipe -mmcu=$(MCU) -Os -std=c99 -Wall -Wno-main
+#CFLAGS =  -g -pipe -mmcu=$(MCU) -Os -std=c99 -Wall -Wno-main
+CFLAGS =  -pipe -mmcu=$(MCU) -Os
 CFLAGS += -DBASEDIR=\"$(BASEDIR)/\"
 LDFLAGS = -Wl,-Map=$(TARGET).map
  
@@ -47,7 +48,8 @@ OBJS =  $(OBJDIR)/CC1100-CC2500.o \
 # Rules
 #
  
-all: clean depend $(TARGET).elf $(TARGET).hex $(TARGET).txt
+#all: clean depend $(TARGET).elf $(TARGET).hex $(TARGET).txt
+all: clean depend $(TARGET).elf
  
 asm: $(TARGET).lst
  
@@ -72,6 +74,9 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
  
 %.txt: %.hex
 	$(MAKETXT) -O $@ -TITXT $< -I
+
+install: $(TARGET).elf
+	mspdebug rf2500 erase "prog $(TARGET).elf"
  
 clean:
 	-rm -f .depend $(TARGET).* $(OBJDIR)/*.o *.core tags
