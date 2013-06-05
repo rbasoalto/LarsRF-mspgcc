@@ -51,7 +51,7 @@
 
 #define TI_CC_LED_PxOUT         P1OUT
 #define TI_CC_LED_PxDIR         P1DIR
-#define TI_CC_LED1              BIT4
+#define TI_CC_LED1              BIT0
 #define TI_CC_LED2              BIT4
 
 #define TI_CC_SW_PxIN           P1IN

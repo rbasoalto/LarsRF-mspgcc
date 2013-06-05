@@ -12,15 +12,16 @@
 void uartInit(void)
 {
    
-    BCSCTL1 = CALBC1_1MHZ;            // Set DCO to 1MHz
-    DCOCTL = CALDCO_1MHZ;   
+    BCSCTL1 = CALBC1_16MHZ;            // Set DCO to 16MHz
+    DCOCTL = CALDCO_16MHZ;   
+    BCSCTL2 = DIVS_3;
     
     ////////////////USCI setup////////////////
     
     P1SEL = BIT1 + BIT2;            // Set P1.1 to RXD and P1.2 to TXD
     P1SEL2 = BIT1 + BIT2;            //
-    UCA0CTL1 |= UCSSEL_2;            // Have USCI use SMCLK AKA 1MHz main CLK
-    UCA0BR0 = 104;                  // Baud: 9600, N= CLK/Baud, N= 10^6 / 9600
+    UCA0CTL1 |= UCSSEL_2;            // Have USCI use SMCLK AKA 16MHz main CLK div 8 = 2mhz
+    UCA0BR0 = 208;                  // Baud: 9600, N= CLK/Baud, N= 10^6 / 9600
     UCA0BR1 = 0;                  // Set upper half of baud select to 0 
     UCA0MCTL = UCBRS_1;               // Modulation UCBRSx = 1
     UCA0CTL1 &= ~UCSWRST;             // Start USCI

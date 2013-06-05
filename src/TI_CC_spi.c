@@ -123,7 +123,7 @@ void TI_CC_SPISetup(void)
   UCB0CTL1 |= UCSWRST;                      // **Disable USCI state machine**
   UCB0CTL0 |= UCMST+UCCKPH+UCMSB+UCSYNC;    // 3-pin, 8-bit SPI master
   UCB0CTL1 |= UCSSEL_2;                     // SMCLK
-  UCB0BR0 = 0x02;                           // UCLK/2
+  UCB0BR0 = 0x04;                           // UCLK/4
   UCB0BR1 = 0;
 
   
@@ -200,7 +200,7 @@ void TI_CC_SPIReadBurstReg(char addr, char *buffer, char count)
   for (i = 0; i < (count-1); i++)
   {
     UCB0TXBUF = 0;                          //Initiate next data RX, meanwhile..
-    buffer[i] = UCB0RXBUF;                  // Store data from last data RX
+    buffer[(int)i] = UCB0RXBUF;                  // Store data from last data RX
     while (!(IFG2&UCB0RXIFG));              // Wait for RX to finish
   }
   buffer[count-1] = UCB0RXBUF;              // Store last RX byte in buffer

@@ -282,8 +282,8 @@ void writeRFSettings(void)
 }
 
 // PATABLE (0 dBm output power)
-extern char paTable[] = {0x60};
-extern char paTableLen = 1;
+char paTable[] = {0x60};
+char paTableLen = 1;
 
 #endif
 
@@ -357,8 +357,8 @@ void writeRFSettings(void)
 }
 
 // PATABLE (0 dBm output power)
-extern char paTable[] = {0x50};
-extern char paTableLen = 1;
+char paTable[] = {0x50};
+char paTableLen = 1;
 
 #endif
 
@@ -433,8 +433,8 @@ void writeRFSettings(void)
 }
 
 // PATABLE (0 dBm output power)
-extern char paTable[] = {0xFB};
-extern char paTableLen = 1;
+char paTable[] = {0xFB};
+char paTableLen = 1;
 
 #endif
 

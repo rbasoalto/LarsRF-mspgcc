@@ -22,10 +22,10 @@ char txBuffer[12];
 char rxBuffer[12];
 unsigned int i = 0;
 
+unsigned int flashRead;
 
 
-
-void main (void)
+int main (void)
 {
   WDTCTL = WDTPW + WDTHOLD;                 // Stop WDT
 
@@ -57,9 +57,14 @@ void main (void)
                                             // When a pkt is received, it will
                                             // signal on GDO0 and wake CPU
 
+  // Read segment D of flash memory
+  int* flashAddr = 0x1000;
+  flashRead = *flashAddr;
+
   //__bis_SR_register(LPM3_bits + GIE);       // Enter LPM3, enable interrupts
   __bis_SR_register(LPM0_bits + GIE);       // Enter LPM0, interrupts enabled
   
+  return 0;
 }
 
 
@@ -75,7 +80,8 @@ interrupt(PORT1_VECTOR) PORT1_ISR()
     txBuffer[0] = 11;                        // Packet length
     txBuffer[1] = 0x01;                     // Packet address
     txBuffer[2] = TI_CC_LED1;
-    txBuffer[3] = 0x32;
+    // txBuffer[3] = 0x32;
+    txBuffer[3] = flashRead & 0xFF;
     txBuffer[4] = 0x33;
     txBuffer[5] = 0x34;
     txBuffer[6] = 0x35;
