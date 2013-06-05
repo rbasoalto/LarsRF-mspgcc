@@ -1,3 +1,6 @@
+#ifndef __TI_CC_MSP430_H__
+#define __TI_CC_MSP430_H__
+
 /* --COPYRIGHT--,BSD
  * Copyright (c) 2011, Texas Instruments Incorporated
  * All rights reserved.
@@ -188,3 +191,5 @@
 #define TI_CC_SER_INTF_USCIB3  10
 #define TI_CC_SER_INTF_USI     11
 #define TI_CC_SER_INTF_BITBANG 12
+
+#endif

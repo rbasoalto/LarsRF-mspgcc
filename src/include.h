@@ -1,3 +1,6 @@
+#ifndef __INCLUDE_H__
+#define __INCLUDE_H__
+
 /* --COPYRIGHT--,BSD
  * Copyright (c) 2011, Texas Instruments Incorporated
  * All rights reserved.
@@ -60,3 +63,4 @@
 //#include "TI_CC_hardware_board_EXP4618.h"
 //#include "TI_CC_hardware_board_EXP5438.h"
 
+#endif

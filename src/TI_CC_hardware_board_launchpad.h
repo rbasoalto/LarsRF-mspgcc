@@ -1,3 +1,6 @@
+#ifndef __TI_CC_HARDWARE_BOARD_LAUNCHPAD_H__
+#define __TI_CC_HARDWARE_BOARD_LAUNCHPAD_H__
+
 /* --COPYRIGHT--,BSD
  * Copyright (c) 2011, Texas Instruments Incorporated
  * All rights reserved.
@@ -92,3 +95,4 @@
 //#define TI_5xx                              // Using a 5xx
 #define TI_MSP430G2553
 
+#endif

@@ -1,3 +1,6 @@
+#ifndef __TI_CC_CC1100_CC2500_H__
+#define __TI_CC_CC1100_CC2500_H__
+
 /* --COPYRIGHT--,BSD
 * Copyright (c) 2011, Texas Instruments Incorporated
  * All rights reserved.
@@ -138,3 +141,4 @@
 #define TI_CCxxx0_READ_BURST   0xC0
 
 
+#endif

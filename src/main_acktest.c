@@ -22,8 +22,7 @@ char txBuffer[12];
 char rxBuffer[12];
 unsigned int i = 0;
 
-unsigned int flashRead;
-
+unsigned int flashAddr;
 
 int main (void)
 {
@@ -58,11 +57,19 @@ int main (void)
                                             // signal on GDO0 and wake CPU
 
   // Read segment D of flash memory
-  int* flashAddr = 0x1000;
-  flashRead = *flashAddr;
+  flashAddr = *((unsigned int *)0x1000u);
+
+  offerFlashRewrite();
 
   //__bis_SR_register(LPM3_bits + GIE);       // Enter LPM3, enable interrupts
-  __bis_SR_register(LPM0_bits + GIE);       // Enter LPM0, interrupts enabled
+  //__bis_SR_register(LPM0_bits + GIE);       // Enter LPM0, interrupts enabled
+  
+  while(1) {
+      LPM0;
+      if(serialCommandReady) {
+          processSerialCommand();
+      }
+  }
   
   return 0;
 }

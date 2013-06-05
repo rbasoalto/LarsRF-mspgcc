@@ -1,3 +1,6 @@
+#ifndef __TI_CC_SPI_H__
+#define __TI_CC_SPI_H__
+
 /* --COPYRIGHT--,BSD
 * Copyright (c) 2011, Texas Instruments Incorporated
  * All rights reserved.
@@ -59,6 +62,4 @@ char TI_CC_SPIReadStatus(char);
 void TI_CC_SPIStrobe(char);
 void TI_CC_Wait(unsigned int);
 
-
-
-
+#endif

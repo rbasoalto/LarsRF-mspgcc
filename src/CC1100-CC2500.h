@@ -1,3 +1,6 @@
+#ifndef __CC1100_CC2500_H__
+#define __CC1100_CC2500_H__
+
 /* --COPYRIGHT--,BSD
  * Copyright (c) 2011, Texas Instruments Incorporated
  * All rights reserved.
@@ -46,3 +49,5 @@ void RFSendPacket(char *, char);
 char RFReceivePacket(char *, char *);
 void Radio_GotoSleep();
 void Radio_WakeUp();
+
+#endif
